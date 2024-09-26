@@ -45,8 +45,7 @@ public class MapReduceExample {
                 .get();
         System.out.println(longestString);
 
-        //get employee whose grade A
-        //get salary
+        //get employee average salary whose grade
         double avgSalary = EmployeeDatabase.getEmployees().stream()
                 .filter(employee -> employee.getGrade().equalsIgnoreCase("A"))
                 .map(employee -> employee.getSalary())

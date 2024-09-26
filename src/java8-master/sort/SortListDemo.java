@@ -28,7 +28,7 @@ public class SortListDemo {
 		});*/
 		
 		
-		Collections.sort(employees, ( o1,  o2) ->(int) (o1.getSalary() - o2.getSalary()));
+		Collections.sort(employees, (o1,  o2) ->(int) (o1.getSalary() - o2.getSalary()));
 
 		//System.out.println(employees);
 		

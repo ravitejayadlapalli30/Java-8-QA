@@ -1,9 +1,6 @@
 package java8;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class NthHighestSalaryDemo {
@@ -31,6 +28,12 @@ public class NthHighestSalaryDemo {
         map2.put("tom", 1300);
         map2.put("daniel", 1300);
 
+        List<Map.Entry<Integer, List<String>>> list = map2.entrySet().stream()
+                .collect(Collectors.groupingBy(Map.Entry::getValue,
+                        Collectors.mapping(Map.Entry::getKey, Collectors.toList())))
+                .entrySet().stream().sorted(Collections.reverseOrder(Comparator.comparing(Map.Entry::getKey))).toList();
+
+        System.out.println(list);
 
         Map.Entry<Integer, List<String>> ssc = map2.entrySet().stream().
                 collect(Collectors.groupingBy(Map.Entry::getValue
@@ -43,11 +46,11 @@ public class NthHighestSalaryDemo {
                 .collect(Collectors.groupingBy(Map.Entry::getValue, Collectors.mapping(Map.Entry::getKey, Collectors.toList())))
                         .entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByKey())).toList();
 
-        System.out.println(ssc);
+        //System.out.println(ssc);
         //System.out.println(getNthHighestSalary(2, map2));
 
 
-        System.out.println(getDynamicNthHighestSalary(3, map1));
+        //System.out.println(getDynamicNthHighestSalary(3, map2));
 
     }
 

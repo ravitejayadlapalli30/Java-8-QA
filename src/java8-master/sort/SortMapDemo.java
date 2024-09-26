@@ -27,7 +27,12 @@ public class SortMapDemo {
 		employeeMap.put(new Employee(624, "Sourav", "CORE", 400000), 40);
 		employeeMap.put(new Employee(284, "Prakash", "SOCIAL", 1200000), 120);
 
-		System.out.println(employeeMap);
+//		employeeMap.entrySet().stream()
+//				.sorted(Entry.comparingByKey(Comparator.comparing(Employee::getId).reversed())).forEach(System.out::println);
+
+
+		employeeMap.values().stream().sorted(Comparator.comparing(Integer::intValue).reversed()).forEach(System.out::println);
+		employeeMap.entrySet().stream().map(Entry::getKey).filter(i -> i.getSalary() > 500000).forEach(System.out::println);
 
 		List<Entry<String, Integer>> entries = new ArrayList<>(map.entrySet());
 		Collections.sort(entries, (o1, o2) -> o1.getKey().compareTo(o2.getKey()));

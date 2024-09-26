@@ -53,7 +53,7 @@ public class Java8CommonProgrammingQA {
         List<String> karnataka = studentList.stream().filter(s -> s.getCity().equalsIgnoreCase("karnataka"))
                 .sorted(Comparator.comparing(Student::getFirstName)).map(Student::getFirstName).toList();
         List<String> studentsByCity1 = studentList.stream().filter(student -> student.getCity().equals("Karnataka"))
-                .sorted(Comparator.comparing(Student::getFirstName, Comparator.reverseOrder())).map(Student::getFirstName).collect(Collectors.toList());
+                .sorted(Comparator.comparing(Student::getFirstName, Comparator.reverseOrder())).map(Student::getFirstName).toList();
         //System.out.println(studentsByCity1);
 
         // 3. Find all departments names
