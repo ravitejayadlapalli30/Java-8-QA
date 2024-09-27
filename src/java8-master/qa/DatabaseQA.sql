@@ -30,7 +30,7 @@
 //10. Using LIKE (Whose name ends with 'a')
 	SELECT * FROM Student WHERE FIRST_NAME LIKE '%a';
 
-//11.(Whose name ends with 'a')
+//11.(Whose name starts with 'a')
     SELECT * from student where first_name LIKE 'a%';
 
 //12. first_name and total count of first_name
@@ -44,3 +44,7 @@
 
 //15. Get first 3 highest salary
 	SELECT * FROM Student ORDER BY GPA DESC LIMIT 3;
+
+//16. Joins
+    Select e.employee_name, e.employee_id, d.department_name from employees e
+        INNER JOIN departments d ON e.employee_id = d.department_id;
